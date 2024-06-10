@@ -32,6 +32,12 @@ namespace MongoDBApiExemplo.Controllers
             return address;
         }
 
+        [HttpGet("{cep:length(8)}")]
+        public ActionResult<AddressDTO> GetPostOffice(string cep)
+        {
+            return PostOfficeService.GetAddres(cep).Result;
+        }
+
         [HttpPost]
         public ActionResult<Address> Create(Address address)
         {

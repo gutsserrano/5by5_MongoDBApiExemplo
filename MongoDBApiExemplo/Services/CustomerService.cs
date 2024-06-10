@@ -26,5 +26,15 @@ namespace MongoDBApiExemplo.Services
             return customer;
         }
 
+        public void Update(Customer customer)
+        {
+            _customer.ReplaceOne(c => c.Id == customer.Id, customer);
+        }    
+
+        public void Delete(string id)
+        {
+            _customer.DeleteOne(c => c.Id == id);
+        }
+
     }
 }
